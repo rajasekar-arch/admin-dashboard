@@ -1,0 +1,73 @@
+.sidenav-container {
+  height: 100vh;
+  width: 100%;
+}
+
+.sidenav {
+  width: 20%;
+  min-width: 220px;
+  max-width: 300px;
+  transition: width 0.3s ease;
+  overflow-x: hidden;
+  background-color: #19c6e5;
+}
+
+.sidenav.mini {
+  width: 6%;
+  min-width: 64px;
+  max-width: 80px;
+}
+
+.sidenav-toggle {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5em;
+}
+
+.mat-nav-list a {
+  display: flex;
+  align-items: center;
+}
+
+.mat-nav-list mat-icon {
+  margin-right: 1em;
+}
+
+.sidenav.mini .mat-nav-list span {
+  display: none;
+}
+
+.content {
+  padding: 2%;
+}
+
+.header-toolbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1em;
+}
+
+.app-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.user-name {
+  font-weight: 500;
+  color: black;
+}
+
+.profile-icon {
+  font-size: 1.8em;
+  color: black;
+}

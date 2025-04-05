@@ -1,0 +1,53 @@
+<mat-sidenav-container class="sidenav-container" autosize>
+  <!-- Side Nav -->
+  <mat-sidenav mode="side" opened class="sidenav" [class.mini]="!isSideNavOpened">
+    <!-- Toggle button inside sidenav -->
+    <div class="sidenav-toggle">
+      <button mat-icon-button (click)="toggleSideNav()">
+        <mat-icon>{{ isSideNavOpened ? 'chevron_left' : 'chevron_right' }}</mat-icon>
+      </button>
+    </div>
+
+    <!-- Navigation links -->
+    <mat-nav-list>
+      <a
+        mat-list-item
+        routerLink="/dashboard"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+      >
+        <mat-icon>dashboard</mat-icon>
+        <span *ngIf="isSideNavOpened">Dashboard</span>
+      </a>
+      <!-- <a mat-list-item routerLink="/users">
+        <mat-icon>group</mat-icon>
+        <span *ngIf="isSideNavOpened">Users</span>
+      </a> -->
+      <a
+        mat-list-item
+        routerLink="/settings"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+      >
+        <mat-icon>settings</mat-icon>
+        <span *ngIf="isSideNavOpened">Settings</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main content -->
+  <mat-sidenav-content class="nav-content">
+    <mat-toolbar class="header-toolbar">
+      <span class="app-title">Admin Panel</span>
+      <span class="spacer"></span>
+      <div class="user-info">
+        <span class="user-name">John Doe</span>
+        <mat-icon class="profile-icon">account_circle</mat-icon>
+      </div>
+    </mat-toolbar>
+
+    <div class="content">
+      <router-outlet />
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
