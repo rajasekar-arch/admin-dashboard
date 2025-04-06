@@ -2,10 +2,19 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { MaterialModule } from './modules/material-module/material/material.module';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, MaterialModule, CommonModule],
+  standalone: true,
+  imports: [
+    RouterOutlet,
+    RouterLink,
+    RouterLinkActive,
+    MaterialModule,
+    CommonModule,
+    HttpClientModule,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

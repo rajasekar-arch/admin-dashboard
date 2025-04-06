@@ -9,29 +9,34 @@
     </div>
 
     <!-- Navigation links -->
-    <mat-nav-list>
-      <a
-        mat-list-item
-        routerLink="/dashboard"
-        routerLinkActive="active"
-        ariaCurrentWhenActive="page"
-      >
-        <mat-icon>dashboard</mat-icon>
-        <span *ngIf="isSideNavOpened">Dashboard</span>
-      </a>
+    <mat-nav-list class="nav-list">
+      <div>
+        <a
+          class="anchor-tag-router"
+          mat-list-item
+          routerLink="/dashboard"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+        >
+          <mat-icon>dashboard</mat-icon>
+          <span *ngIf="isSideNavOpened">Dashboard</span>
+        </a>
+      </div>
       <!-- <a mat-list-item routerLink="/users">
         <mat-icon>group</mat-icon>
         <span *ngIf="isSideNavOpened">Users</span>
       </a> -->
-      <a
-        mat-list-item
-        routerLink="/settings"
-        routerLinkActive="active"
-        ariaCurrentWhenActive="page"
-      >
-        <mat-icon>settings</mat-icon>
-        <span *ngIf="isSideNavOpened">Settings</span>
-      </a>
+      <div>
+        <a
+          mat-list-item
+          routerLink="/settings"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+        >
+          <mat-icon>settings</mat-icon>
+          <span *ngIf="isSideNavOpened">Settings</span>
+        </a>
+      </div>
     </mat-nav-list>
   </mat-sidenav>
 

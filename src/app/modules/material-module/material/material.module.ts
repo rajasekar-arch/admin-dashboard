@@ -17,7 +17,14 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { MatCardModule } from '@angular/material/card';
+import {
+  MatCard,
+  MatCardActions,
+  MatCardHeader,
+  MatCardModule,
+  MatCardSubtitle,
+  MatCardTitle,
+} from '@angular/material/card';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -67,6 +74,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    MatCardHeader,
+    MatCardActions,
+    MatCardSubtitle,
+    MatCardTitle,
+    MatCard,
   ],
   exports: [
     MatButtonModule,
@@ -85,6 +97,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatTooltipModule,
     MatTableModule,
     MatPaginatorModule,
+    MatCardHeader,
+    MatCardActions,
+    MatCardSubtitle,
+    MatCardTitle,
+    MatCard,
   ],
   providers: [MatDatepickerModule],
 })
