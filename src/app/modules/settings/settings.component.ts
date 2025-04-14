@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { RouterModule } from '@angular/router';
+import { IProfileDetails } from '../../interfaces/settings.interface';
 
 @Component({
   selector: 'app-settings',
@@ -12,21 +13,21 @@ import { RouterModule } from '@angular/router';
   styleUrl: './settings.component.scss',
 })
 export class SettingsComponent implements OnInit {
-  profileForm!: FormGroup;
+  public profileForm!: FormGroup;
 
   // Track which fields are in edit mode
-  editMode: Record<string, boolean> = {};
+  public editMode: Record<string, boolean> = {};
 
-  fields = [
+  public fields: IProfileDetails[] = [
     { label: 'First Name', key: 'firstName', type: 'text' },
     { label: 'Last Name', key: 'lastName', type: 'text' },
     { label: 'Mobile Number', key: 'mobile', type: 'tel' },
     { label: 'Email ID', key: 'email', type: 'email' },
   ];
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) { }
 
-  ngOnInit() {
+  public ngOnInit() {
     this.profileForm = this.fb.group({
       firstName: ['John', Validators.required],
       lastName: ['Doe', Validators.required],
@@ -46,24 +47,24 @@ export class SettingsComponent implements OnInit {
     });
   }
 
-  enableEdit(fieldKey: string): void {
+  public enableEdit(fieldKey: string): void {
     this.editMode[fieldKey] = true;
   }
 
-  saveField(fieldKey: string): void {
+  public saveField(fieldKey: string): void {
     const control = this.profileForm.get(fieldKey);
-    if (control?.valid) {
+    if (control?.valid)
       this.editMode[fieldKey] = false;
-    } else {
+    else
       control?.markAsTouched(); // Show validation message
-    }
+
   }
 
-  submitForm(): void {
-    if (this.profileForm.valid) {
+  public submitForm(): void {
+    if (this.profileForm.valid)
       console.log('Form submitted:', this.profileForm.value);
-    } else {
+    else
       console.log('Form invalid');
-    }
+
   }
 }
