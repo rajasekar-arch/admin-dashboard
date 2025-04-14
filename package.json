@@ -1,11 +1,17 @@
 {
   "name": "admin-dashboard",
   "version": "0.0.0",
+  "author": {
+    "name": "Rajasekar Enukupati",
+    "email": "rajasekar29791@example.com",
+    "url": "https://yourportfolio.com"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
+    "lighthouse": "http://localhost:4200 --output html --output-path ./lighthouse-report.html",
     "prettier": "prettier --check \"src/**/*.{ts,html,css,scss,js,json}\"",
     "prettier:fix": "prettier --write \"src/**/*.{ts,html,css,scss,js,json}\"",
     "build": "ng build",

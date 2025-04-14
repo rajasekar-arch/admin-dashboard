@@ -1,0 +1,36 @@
+name: Lighthouse Audit
+
+on:
+  push:
+    branches: [Production]
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install deps
+        run: npm install
+
+      - name: Build Angular app
+        run: npm run build
+
+      - name: Serve site
+        run: npx http-server ./dist/your-app-name -p 8080 &
+      
+      - name: Run Lighthouse
+        run: |
+          npm install -g lighthouse
+          lighthouse http://localhost:4200 --output html --output-path ./lighthouse-report.html --chrome-flags="--headless"
+
+      - name: Upload report artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: lighthouse-report
+          path: lighthouse-report.html
