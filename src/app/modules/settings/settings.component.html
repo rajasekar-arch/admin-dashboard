@@ -1,7 +1,6 @@
 <div class="form-container">
   <form [formGroup]="profileForm" (ngSubmit)="submitForm()">
     <div class="form-field" *ngFor="let field of fields">
-      <mat-form-field>
         <mat-label>{{ field.label }}</mat-label>
         <div class="input-edit-wrapper">
           <ng-container *ngIf="!editMode[field.key]; else editField">
@@ -17,12 +16,15 @@
           </ng-container>
 
           <ng-template #editField>
-            <input
+            <mat-form-field style="width: 100%;">
+              <input
               [type]="field.type"
               [formControlName]="field.key"
               [id]="field.key"
               [class.disabled]="profileForm.get(field.key)?.invalid"
             />
+            </mat-form-field>
+
             <span
               class="save-icon"
               [class.disabled]="profileForm.get(field.key)?.invalid"
@@ -36,7 +38,7 @@
             </span>
           </ng-template>
         </div>
-      </mat-form-field>
+
       <div class="error-message" *ngIf="profileForm.get(field.key)?.invalid && editMode[field.key]">
         <small *ngIf="profileForm.get(field.key)?.errors?.['required']"
           >This field is required.</small
