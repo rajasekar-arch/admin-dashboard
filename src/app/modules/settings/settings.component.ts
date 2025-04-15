@@ -65,6 +65,5 @@ export class SettingsComponent implements OnInit {
       console.log('Form submitted:', this.profileForm.value);
     else
       console.log('Form invalid');
-
   }
 }

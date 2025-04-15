@@ -29,10 +29,5 @@ export class DashboardComponent {
       routerLink: '/dashboard/users-info',
       subTitle: '',
     },
-    {
-      name: 'Users Information',
-      routerLink: '/dashboard/users-info',
-      subTitle: '',
-    },
   ];
 }

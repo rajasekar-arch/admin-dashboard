@@ -1,18 +1,26 @@
 .dashboard-container {
-  .card-container {
-    display: inline-flex;
-    flex-wrap: wrap;
-    gap: 2%;
-    justify-content: center;
-  }
+  padding: 1rem;
+}
 
-  .card {
-    flex: 1 1 50%;
-    /* Grow/shrink, minimum width 30% */
-    max-width: 80%;
-    height: 100%;
-    min-height: 80%;
-    background-color: rgb(214, 246, 244);
-    box-sizing: border-box;
-  }
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start; /* Or 'flex-start' if you prefer left-aligned */
+}
+
+.card-container {
+  flex: 1 1 250px; /* Grows/shrinks with min width of 250px */
+  max-width: 300px;
+  min-height: 150px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+}
+
+.mat-card-actions {
+  margin-top: auto;
+  background-image: url('./../../../../assets/q.jpg');
 }
