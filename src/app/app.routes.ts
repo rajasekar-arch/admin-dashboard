@@ -38,5 +38,29 @@ export const routes: Routes = [
         (m) => m.UsersListComponent,
       ), // child route component that the router renders
   },
+  {
+    path: 'dashboard/learning-center',
+    title: 'Learning Center',
+    loadComponent: () =>
+      import('./modules/dashboard/learning-center/learning-center.component').then(
+        (m) => m.LearningCenterComponent,
+      ), 
+  },
+  {
+    path: 'dashboard/goals',
+    title: 'Goals',
+    loadComponent: () =>
+      import('./modules/dashboard/goals/goals.component').then(
+        (m) => m.GoalsComponent,
+      ), 
+  },
+  {
+    path: 'dashboard/documents',
+    title: 'Documents',
+    loadComponent: () =>
+      import('./modules/dashboard/document-center/document-center.component').then(
+        (m) => m.DocumentCenterComponent,
+      ), 
+  },
   { path: '**', redirectTo: '/dashboard' }, // fallback route
 ];

@@ -4,6 +4,7 @@ import { RouterLink, RouterModule } from '@angular/router';
 import { MaterialModule } from '../../material-module/material/material.module';
 import { CommonModule } from '@angular/common';
 import { IMenuItemsList } from '../../../interfaces/dashboard.interface';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +14,7 @@ import { IMenuItemsList } from '../../../interfaces/dashboard.interface';
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent {
-  public menuListItems: IMenuItemsList[] = [
+  public menuListItems: IMenuItemsList[] = _.sortBy([
     {
       name: 'Leave management',
       routerLink: '/dashboard/leaves-management',
@@ -29,5 +30,20 @@ export class DashboardComponent {
       routerLink: '/dashboard/users-info',
       subTitle: '',
     },
-  ];
+    {
+      name: 'Learning Center',
+      routerLink: '/dashboard/learning-center',
+      subTitle: '',
+    },
+    {
+      name: 'Documents',
+      routerLink: '/dashboard/documents',
+      subTitle: '',
+    },
+    {
+      name: 'Goals',
+      routerLink: '/dashboard/goals',
+      subTitle: '',
+    },
+  ],(res:IMenuItemsList) => res.name);
 }
