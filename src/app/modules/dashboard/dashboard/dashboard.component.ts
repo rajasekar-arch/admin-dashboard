@@ -45,5 +45,10 @@ export class DashboardComponent {
       routerLink: '/dashboard/goals',
       subTitle: '',
     },
+    {
+      name: 'Policies',
+      routerLink: '/dashboard/policies',
+      subTitle: '',
+    },
   ],(res:IMenuItemsList) => res.name);
 }

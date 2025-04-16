@@ -62,5 +62,13 @@ export const routes: Routes = [
         (m) => m.DocumentCenterComponent,
       ), 
   },
+  {
+    path: 'dashboard/policies',
+    title: 'Documents',
+    loadComponent: () =>
+      import('./modules/dashboard/policies/policies.component').then(
+        (m) => m.PoliciesComponent,
+      ), 
+  },
   { path: '**', redirectTo: '/dashboard' }, // fallback route
 ];
