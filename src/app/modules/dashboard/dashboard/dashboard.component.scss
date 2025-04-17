@@ -5,13 +5,13 @@
 nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 2rem;
   justify-content: flex-start; /* Or 'flex-start' if you prefer left-aligned */
 }
 
 .card-container {
   flex: 1 1 250px; /* Grows/shrinks with min width of 250px */
-  max-width: 300px;
+  max-width: 250px;
   min-height: 150px;
 }
 
