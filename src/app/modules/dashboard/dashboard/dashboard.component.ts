@@ -14,41 +14,49 @@ import * as _ from 'lodash';
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent {
-  public menuListItems: IMenuItemsList[] = _.sortBy([
-    {
-      name: 'Leave management',
-      routerLink: '/dashboard/leaves-management',
-      subTitle: '',
-    },
-    {
-      name: 'Personal Information',
-      routerLink: '/dashboard/personal-info',
-      subTitle: '',
-    },
-    {
-      name: 'Users Information',
-      routerLink: '/dashboard/users-info',
-      subTitle: '',
-    },
-    {
-      name: 'Learning Center',
-      routerLink: '/dashboard/learning-center',
-      subTitle: '',
-    },
-    {
-      name: 'Documents',
-      routerLink: '/dashboard/documents',
-      subTitle: '',
-    },
-    {
-      name: 'Goals',
-      routerLink: '/dashboard/goals',
-      subTitle: '',
-    },
-    {
-      name: 'Policies',
-      routerLink: '/dashboard/policies',
-      subTitle: '',
-    },
-  ],(res:IMenuItemsList) => res.name);
+  public menuListItems: IMenuItemsList[] = _.sortBy(
+    [
+      {
+        name: 'Leave management',
+        routerLink: '/dashboard/leaves-management',
+        subTitle: '',
+      },
+      {
+        name: 'Personal Information',
+        routerLink: '/dashboard/personal-info',
+        subTitle: '',
+      },
+      {
+        name: 'Users Information',
+        routerLink: '/dashboard/users-info',
+        subTitle: '',
+      },
+      {
+        name: 'Learning Center',
+        routerLink: '/dashboard/learning-center',
+        subTitle: '',
+      },
+      {
+        name: 'Documents',
+        routerLink: '/dashboard/documents',
+        subTitle: '',
+      },
+      {
+        name: 'Goals',
+        routerLink: '/dashboard/goals',
+        subTitle: '',
+      },
+      {
+        name: 'Policies',
+        routerLink: '/dashboard/policies',
+        subTitle: '',
+      },
+      {
+        name: 'Employees Book',
+        routerLink: '/dashboard/employees-book',
+        subTitle: '',
+      },
+    ],
+    (res: IMenuItemsList) => res.name,
+  );
 }

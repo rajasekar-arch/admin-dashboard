@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-learning-center',
   imports: [],
   templateUrl: './learning-center.component.html',
-  styleUrl: './learning-center.component.scss'
+  styleUrl: './learning-center.component.scss',
 })
-export class LearningCenterComponent {
-
-}
+export class LearningCenterComponent {}

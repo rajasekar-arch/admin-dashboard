@@ -25,7 +25,7 @@ export class SettingsComponent implements OnInit {
     { label: 'Email ID', key: 'email', type: 'email' },
   ];
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {}
 
   public ngOnInit() {
     this.profileForm = this.fb.group({
@@ -53,17 +53,12 @@ export class SettingsComponent implements OnInit {
 
   public saveField(fieldKey: string): void {
     const control = this.profileForm.get(fieldKey);
-    if (control?.valid)
-      this.editMode[fieldKey] = false;
-    else
-      control?.markAsTouched(); // Show validation message
-
+    if (control?.valid) this.editMode[fieldKey] = false;
+    else control?.markAsTouched(); // Show validation message
   }
 
   public submitForm(): void {
-    if (this.profileForm.valid)
-      console.log('Form submitted:', this.profileForm.value);
-    else
-      console.log('Form invalid');
+    if (this.profileForm.valid) console.log('Form submitted:', this.profileForm.value);
+    else console.log('Form invalid');
   }
 }

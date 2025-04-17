@@ -44,15 +44,13 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./modules/dashboard/learning-center/learning-center.component').then(
         (m) => m.LearningCenterComponent,
-      ), 
+      ),
   },
   {
     path: 'dashboard/goals',
     title: 'Goals',
     loadComponent: () =>
-      import('./modules/dashboard/goals/goals.component').then(
-        (m) => m.GoalsComponent,
-      ), 
+      import('./modules/dashboard/goals/goals.component').then((m) => m.GoalsComponent),
   },
   {
     path: 'dashboard/documents',
@@ -60,15 +58,21 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./modules/dashboard/document-center/document-center.component').then(
         (m) => m.DocumentCenterComponent,
-      ), 
+      ),
   },
   {
     path: 'dashboard/policies',
     title: 'Documents',
     loadComponent: () =>
-      import('./modules/dashboard/policies/policies.component').then(
-        (m) => m.PoliciesComponent,
-      ), 
+      import('./modules/dashboard/policies/policies.component').then((m) => m.PoliciesComponent),
+  },
+  {
+    path: 'dashboard/employees-book',
+    title: 'Employees Book',
+    loadComponent: () =>
+      import('./modules/dashboard/employees-book/employees-book.component').then(
+        (m) => m.EmployeesBookComponent,
+      ),
   },
   { path: '**', redirectTo: '/dashboard' }, // fallback route
 ];

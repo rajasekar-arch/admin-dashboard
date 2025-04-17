@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-document-center',
   imports: [],
   templateUrl: './document-center.component.html',
-  styleUrl: './document-center.component.scss'
+  styleUrl: './document-center.component.scss',
 })
-export class DocumentCenterComponent {
-
-}
+export class DocumentCenterComponent {}
