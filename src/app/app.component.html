@@ -18,14 +18,30 @@
           routerLinkActive="active"
           ariaCurrentWhenActive="page"
         >
-          <mat-icon>dashboard</mat-icon>
-          <span *ngIf="isSideNavOpened">Dashboard</span>
+          <div style="align-items: center; gap: 5px; display: flex; vertical-align: middle">
+            <div>
+              <mat-icon>dashboard</mat-icon>
+            </div>
+            <span *ngIf="isSideNavOpened">Dashboard</span>
+          </div>
         </a>
       </div>
-      <!-- <a mat-list-item routerLink="/users">
-        <mat-icon>group</mat-icon>
-        <span *ngIf="isSideNavOpened">Users</span>
-      </a> -->
+      <div>
+        <a
+          class="anchor-tag-router"
+          mat-list-item
+          routerLink="/management"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+        >
+          <div style="align-items: center; gap: 5px; display: flex; vertical-align: middle">
+            <div>
+              <mat-icon>management</mat-icon>
+            </div>
+            <span *ngIf="isSideNavOpened">Management</span>
+          </div>
+        </a>
+      </div>
       <div>
         <a
           mat-list-item
@@ -33,8 +49,12 @@
           routerLinkActive="active"
           ariaCurrentWhenActive="page"
         >
-          <mat-icon>settings</mat-icon>
-          <span *ngIf="isSideNavOpened">Settings</span>
+          <div style="align-items: center; gap: 5px; display: flex; vertical-align: middle">
+            <div>
+              <mat-icon>settings</mat-icon>
+            </div>
+            <span *ngIf="isSideNavOpened">Settings</span>
+          </div>
         </a>
       </div>
     </mat-nav-list>

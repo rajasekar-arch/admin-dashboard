@@ -74,5 +74,13 @@ export const routes: Routes = [
         (m) => m.EmployeesBookComponent,
       ),
   },
+  {
+    path: 'management',
+    title: 'Management',
+    loadComponent: () =>
+      import('./modules/management/manage-home/manage-home.component').then(
+        (m) => m.ManageHomeComponent,
+      ),
+  },
   { path: '**', redirectTo: '/dashboard' }, // fallback route
 ];
