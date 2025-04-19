@@ -1,0 +1,26 @@
+.dashboard-container {
+  padding: 1rem;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: flex-start; /* Or 'flex-start' if you prefer left-aligned */
+}
+
+.card-container {
+  flex: 1 1 150px; /* Grows/shrinks with min width of 250px */
+  max-width: 150px;
+  min-height: 150px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+}
+
+.mat-card-actions {
+  margin-top: auto;
+  background-image: url('./../../../../assets/q.jpg');
+}

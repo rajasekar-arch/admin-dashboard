@@ -14,7 +14,7 @@ export const routes: Routes = [
       import('./modules/settings/settings.component').then((m) => m.SettingsComponent), // child route component that the router renders
   },
   {
-    path: 'dashboard/leaves-management', // child route path
+    path: 'management/leaves-management', // child route path
     title: 'Leave-Management',
     loadComponent: () =>
       import('./modules/dashboard/leaves-management/leaves-management.component').then(
@@ -22,7 +22,7 @@ export const routes: Routes = [
       ), // child route component that the router renders
   },
   {
-    path: 'dashboard/personal-info', // child route path
+    path: 'management/personal-info', // child route path
     title: 'Personal Info',
     loadComponent: () =>
       import('./modules/dashboard/personal-information/personal-information.component').then(
@@ -30,7 +30,7 @@ export const routes: Routes = [
       ), // child route component that the router renders
   },
   {
-    path: 'dashboard/users-info', // child route path
+    path: 'management/users-info', // child route path
     title: 'Users Management',
     providers: [HttpClientModule],
     loadComponent: () =>
@@ -39,7 +39,7 @@ export const routes: Routes = [
       ), // child route component that the router renders
   },
   {
-    path: 'dashboard/learning-center',
+    path: 'management/learning-center',
     title: 'Learning Center',
     loadComponent: () =>
       import('./modules/dashboard/learning-center/learning-center.component').then(
@@ -47,13 +47,13 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'dashboard/goals',
+    path: 'management/goals',
     title: 'Goals',
     loadComponent: () =>
       import('./modules/dashboard/goals/goals.component').then((m) => m.GoalsComponent),
   },
   {
-    path: 'dashboard/documents',
+    path: 'management/documents',
     title: 'Documents',
     loadComponent: () =>
       import('./modules/dashboard/document-center/document-center.component').then(
@@ -61,13 +61,13 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'dashboard/policies',
+    path: 'management/policies',
     title: 'Documents',
     loadComponent: () =>
       import('./modules/dashboard/policies/policies.component').then((m) => m.PoliciesComponent),
   },
   {
-    path: 'dashboard/employees-book',
+    path: 'management/employees-book',
     title: 'Employees Book',
     loadComponent: () =>
       import('./modules/dashboard/employees-book/employees-book.component').then(
