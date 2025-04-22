@@ -1,0 +1,94 @@
+<mat-sidenav-container class="sidenav-container" autosize>
+  <!-- Side Nav -->
+  <mat-sidenav mode="side" opened class="sidenav" [class.mini]="!isSideNavOpened">
+    <!-- Toggle button inside sidenav -->
+    <div class="sidenav-toggle">
+      <button mat-icon-button (click)="toggleSideNav()">
+        <mat-icon>{{ isSideNavOpened ? 'chevron_left' : 'chevron_right' }}</mat-icon>
+      </button>
+    </div>
+
+    <!-- Navigation links -->
+    <mat-nav-list class="nav-list">
+      <div>
+        <a
+          class="anchor-tag-router"
+          mat-list-item
+          routerLink="/dashboard"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+        >
+          <div style="align-items: center; gap: 5px; display: flex; vertical-align: middle">
+            <div>
+              <mat-icon>dashboard</mat-icon>
+            </div>
+            <span *ngIf="isSideNavOpened">Dashboard</span>
+          </div>
+        </a>
+      </div>
+      <div>
+        <a
+          class="anchor-tag-router"
+          mat-list-item
+          routerLink="/management"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+        >
+          <div style="align-items: center; gap: 5px; display: flex; vertical-align: middle">
+            <div>
+              <mat-icon>management</mat-icon>
+            </div>
+            <span *ngIf="isSideNavOpened">Management</span>
+          </div>
+        </a>
+      </div>
+      <div>
+        <a
+          mat-list-item
+          routerLink="/settings"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+        >
+          <div style="align-items: center; gap: 5px; display: flex; vertical-align: middle">
+            <div>
+              <mat-icon>settings</mat-icon>
+            </div>
+            <span *ngIf="isSideNavOpened">Settings</span>
+          </div>
+        </a>
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main content -->
+  <mat-sidenav-content class="nav-content">
+    <mat-toolbar class="header-toolbar">
+      <span class="app-title">Admin Panel</span>
+
+      <span class="spacer"></span>
+      <div class="user-info">
+        <span class="user-name">John Doe</span>
+        <mat-icon class="profile-icon">account_circle</mat-icon>
+        <span
+          class="logout"
+          tabindex="0"
+          role="button"
+          (click)="logout()"
+          (keydown.enter)="logout()"
+          >Logout</span
+        >
+      </div>
+    </mat-toolbar>
+
+    <div class="content">
+      <button
+        *ngIf="showBackButton && currentUrl.includes('/management')"
+        mat-stroked-button
+        (click)="goBack()"
+      >
+        ← Back
+      </button>
+      <router-outlet />
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

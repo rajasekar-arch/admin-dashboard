@@ -1,0 +1,99 @@
+.sidenav-container {
+  height: 100vh;
+  width: 100%;
+
+  .sidenav {
+    width: 20%;
+    min-width: 220px;
+    max-width: 300px;
+    transition: width 0.3s ease;
+    overflow-x: hidden;
+    background-color: #c5f6fd;
+  }
+
+  .nav-content {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .content {
+    height: calc(100% - 50px);
+    overflow: auto;
+  }
+
+  .anchor-tag-router {
+    margin: 10px 0 10px 0;
+  }
+
+  .sidenav.mini {
+    width: 6%;
+    min-width: 64px;
+    max-width: 80px;
+  }
+
+  .sidenav-toggle {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5em;
+  }
+
+  .mat-nav-list a {
+    display: flex;
+    align-items: center;
+  }
+
+  .sidenav.mini .mat-nav-list span {
+    display: none;
+  }
+
+  .content {
+    padding: 2%;
+  }
+
+  .header-toolbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1em;
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+
+      .user-name {
+        font-weight: 500;
+        color: black;
+        font-size: 12.5px;
+      }
+
+      .profile-icon {
+        font-size: 18px;
+        color: black;
+      }
+    }
+  }
+
+  .app-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .active {
+    background-color: rgb(21, 147, 131);
+    color: white; // optional, for contrast
+  }
+
+  a.anchor-tag-router.active {
+    background-color: rgb(21, 147, 131) !important;
+    color: white !important;
+  }
+
+  .logout {
+    font-size: 15px;
+    cursor: pointer;
+  }
+}

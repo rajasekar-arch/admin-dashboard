@@ -1,0 +1,53 @@
+import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { filter } from 'rxjs';
+import { CommonModule, Location } from '@angular/common';
+import { MaterialModule } from '../modules/material-module/material/material.module';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from '../services/auth.service';
+
+@Component({
+  selector: 'app-main-layout',
+  imports: [
+    RouterOutlet,
+    RouterLink,
+    RouterLinkActive,
+    MaterialModule,
+    CommonModule,
+    HttpClientModule,
+  ],
+  templateUrl: './main-layout.component.html',
+  styleUrl: './main-layout.component.scss',
+})
+export class MainLayoutComponent implements OnInit {
+  public title = 'admin-dashboard';
+  public isSideNavOpened = true;
+  public showBackButton = false;
+  public currentUrl = '';
+
+  constructor(
+    private location: Location,
+    private router: Router,
+    private auth: AuthService,
+  ) {}
+
+  public ngOnInit(): void {
+    this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
+      this.currentUrl = this.router.url;
+      this.showBackButton = this.currentUrl !== '/management';
+    });
+  }
+
+  public toggleSideNav(): void {
+    this.isSideNavOpened = !this.isSideNavOpened;
+  }
+
+  public goBack(): void {
+    this.location.back();
+  }
+
+  public logout(): void {
+    this.auth.logout();
+    this.router.navigate(['/sign-in']);
+  }
+}
