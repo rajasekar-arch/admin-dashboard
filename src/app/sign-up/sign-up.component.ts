@@ -3,7 +3,7 @@ import { Router, RouterLink } from '@angular/router';
 import { AuthService } from './../services/auth.service';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../modules/material-module/material/material.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
@@ -12,9 +12,6 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './sign-up.component.scss',
 })
 export class SignUpComponent {
-  public name = '';
-  public email = '';
-  public password = '';
   public error = '';
 
   constructor(
@@ -22,11 +19,12 @@ export class SignUpComponent {
     private router: Router,
   ) {}
 
-  public submitForm(): void {
+  public submitSignUp(event:NgForm): void {
+    const ngFormData: {name:string,email: string,password: string} = event.value;
     const result = this.auth.signUp({
-      name: this.name,
-      email: this.email,
-      password: this.password,
+      name: ngFormData.name?.trim(),
+      email: ngFormData.email?.trim(),
+      password: ngFormData.password?.trim(),
     });
     if (result.success) {
       this.router.navigate(['/sign-in']);

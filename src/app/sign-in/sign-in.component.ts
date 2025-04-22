@@ -3,7 +3,7 @@ import { Router, RouterLink } from '@angular/router';
 import { AuthService } from './../services/auth.service';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../modules/material-module/material/material.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-in',
@@ -12,8 +12,6 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './sign-in.component.scss',
 })
 export class SignInComponent {
-  public email = '';
-  public password = '';
   public error = '';
 
   constructor(
@@ -21,8 +19,9 @@ export class SignInComponent {
     private router: Router,
   ) {}
 
-  public submitSignIn(): void {
-    const result = this.auth.signIn(this.email, this.password);
+  public submitSignIn(event: NgForm): void {
+    const ngFormData: {email: string,password: string} = event.value;
+    const result = this.auth.signIn(ngFormData.email?.trim(), ngFormData.password?.trim());
     if (result.success) {
       this.router.navigate(['/dashboard']);
     } else {

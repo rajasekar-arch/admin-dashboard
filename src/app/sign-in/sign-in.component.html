@@ -1,10 +1,10 @@
 <div class="min-h-screen flex items-center justify-center bg-gray-100">
   <div class="bg-white p-8 rounded-xl shadow-xl w-full max-w-md">
     <h2 class="text-2xl font-bold mb-6 text-center">Sign In</h2>
-    <form (ngSubmit)="submitSignIn()">
+    <form #signInForm="ngForm" (ngSubmit)="submitSignIn(signInForm)">
       <div class="mb-4">
         <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-        <input
+        <input ngModel id="email" name="email" 
           type="email"
           class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="you@example.com"
@@ -12,7 +12,7 @@
       </div>
       <div class="mb-4">
         <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
-        <input
+        <input ngModel id="password" name="password" 
           type="password"
           class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="••••••••"
