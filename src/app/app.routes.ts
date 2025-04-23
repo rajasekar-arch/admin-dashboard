@@ -6,6 +6,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
 import { AuthGuard } from './guards/auth.guard';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { NotFoundRedirectComponent } from './shared/not-found-redirect/not-found-redirect.component';
 
 export const routes: Routes = [
   {
@@ -101,4 +102,5 @@ export const routes: Routes = [
       },
     ],
   },
+  { path: '**', component: NotFoundRedirectComponent }
 ];
