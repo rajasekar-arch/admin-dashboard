@@ -93,6 +93,30 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'management/calendar',
+        title: 'Calendar',
+        loadComponent: () =>
+          import('./modules/dashboard/calendar/calendar.component').then(
+            (m) => m.CalendarComponent,
+          ),
+      },
+      {
+        path: 'management/contacts',
+        title: 'Contacts',
+        loadComponent: () =>
+          import('./modules/dashboard/contacts/contacts.component').then(
+            (m) => m.ContactsComponent,
+          ),
+      },
+      {
+        path: 'management/help-desk',
+        title: 'Help Desk',
+        loadComponent: () =>
+          import('./modules/dashboard/help-desk/help-desk.component').then(
+            (m) => m.HelpDeskComponent,
+          ),
+      },
+      {
         path: 'management',
         title: 'Management',
         loadComponent: () =>

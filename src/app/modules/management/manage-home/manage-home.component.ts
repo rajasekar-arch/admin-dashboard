@@ -55,6 +55,21 @@ export class ManageHomeComponent {
         routerLink: '/management/employees-book',
         subTitle: '',
       },
+      {
+        name: 'Contacts',
+        routerLink: '/management/contacts',
+        subTitle: '',
+      },
+      {
+        name: 'Calendar',
+        routerLink: '/management/calendar',
+        subTitle: '',
+      },
+      {
+        name: 'Help Desk',
+        routerLink: '/management/help-desk',
+        subTitle: '',
+      },
     ],
     (res: IMenuItemsList) => res.name,
   );
