@@ -1,3 +1,11 @@
 .header {
   font-size: 32px;
 }
+
+.img {
+  background-size: contain;
+  width: 75%;
+  height: 80%;
+  background-image: url('../../../../assets/dashboard.jpg');
+  background-repeat: no-repeat;
+}
