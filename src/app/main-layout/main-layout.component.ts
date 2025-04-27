@@ -5,6 +5,7 @@ import { CommonModule, Location } from '@angular/common';
 import { MaterialModule } from '../modules/material-module/material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
+import { ISideMenuListItems } from './../interfaces/main-layout.interface';
 
 @Component({
   selector: 'app-main-layout',
@@ -24,12 +25,38 @@ export class MainLayoutComponent implements OnInit {
   public isSideNavOpened = true;
   public showBackButton = false;
   public currentUrl = '';
+  public sideMenuList: ISideMenuListItems[] = [
+    {
+      name: 'Dashboard',
+      id: 1,
+      routerName: '/dashboard',
+      iconName: 'dashboard'
+    },
+    {
+      name: 'Departments',
+      id: 2,
+      routerName: '/department',
+      iconName: 'account_tree'
+    },
+    {
+      name: 'Management',
+      id: 3,
+      routerName: '/management',
+      iconName: 'manage_accounts'
+    },
+    {
+      name: 'Settings',
+      id: 4,
+      routerName: '/settings',
+      iconName: 'admin_panel_settings'
+    }
+  ]
 
   constructor(
     private location: Location,
     private router: Router,
     private auth: AuthService,
-  ) {}
+  ) { }
 
   public ngOnInit(): void {
     this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {

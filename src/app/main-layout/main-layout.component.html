@@ -10,49 +10,14 @@
 
     <!-- Navigation links -->
     <mat-nav-list class="nav-list">
-      <div>
-        <a class="anchor-tag-router" mat-list-item routerLink="/dashboard" routerLinkActive="active"
+      <div *ngFor="let item of sideMenuList;">
+        <a class="anchor-tag-router" mat-list-item routerLink="{{item.routerName}}" routerLinkActive="active"
           ariaCurrentWhenActive="page">
-          <div style="align-items: center; gap: 5px; display: flex; vertical-align: middle">
-            <div>
-              <mat-icon>dashboard</mat-icon>
-            </div>
-            <span *ngIf="isSideNavOpened">Dashboard</span>
-          </div>
-        </a>
-      </div>
-      <div>
-        <a class="anchor-tag-router" mat-list-item routerLink="/management" routerLinkActive="active"
-          ariaCurrentWhenActive="page">
-          <div style="align-items: center; gap: 5px; display: flex; vertical-align: middle">
-            <div>
-              <mat-icon>management</mat-icon>
-            </div>
-            <span *ngIf="isSideNavOpened">Management</span>
-          </div>
-        </a>
-      </div>
-      <div>
-        <a class="anchor-tag-router" mat-list-item routerLink="/settings" routerLinkActive="active"
-          ariaCurrentWhenActive="page">
-          <div style="align-items: center; gap: 5px; display: flex; vertical-align: middle">
-            <div>
-              <mat-icon>settings</mat-icon>
-            </div>
-            <span *ngIf="isSideNavOpened">Settings</span>
-          </div>
-        </a>
-      </div>
-      <div>
-        <a class="anchor-tag-router" mat-list-item routerLink="/department" routerLinkActive="active"
-          ariaCurrentWhenActive="page">
-          <div style="align-items: center; gap: 5px; display: flex; vertical-align: middle">
-            <div>
-              <span class="material-icons-sharp">
-                window
-              </span>
-            </div>
-            <span *ngIf="isSideNavOpened">Departments</span>
+          <div class="anchor-tag">
+            <span class="material-icons-sharp">
+              {{ item.iconName }}
+            </span>
+            <span *ngIf="isSideNavOpened">{{item.name}}</span>
           </div>
         </a>
       </div>
