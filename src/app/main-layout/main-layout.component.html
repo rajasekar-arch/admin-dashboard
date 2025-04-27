@@ -11,13 +11,8 @@
     <!-- Navigation links -->
     <mat-nav-list class="nav-list">
       <div>
-        <a
-          class="anchor-tag-router"
-          mat-list-item
-          routerLink="/dashboard"
-          routerLinkActive="active"
-          ariaCurrentWhenActive="page"
-        >
+        <a class="anchor-tag-router" mat-list-item routerLink="/dashboard" routerLinkActive="active"
+          ariaCurrentWhenActive="page">
           <div style="align-items: center; gap: 5px; display: flex; vertical-align: middle">
             <div>
               <mat-icon>dashboard</mat-icon>
@@ -27,13 +22,8 @@
         </a>
       </div>
       <div>
-        <a
-          class="anchor-tag-router"
-          mat-list-item
-          routerLink="/management"
-          routerLinkActive="active"
-          ariaCurrentWhenActive="page"
-        >
+        <a class="anchor-tag-router" mat-list-item routerLink="/management" routerLinkActive="active"
+          ariaCurrentWhenActive="page">
           <div style="align-items: center; gap: 5px; display: flex; vertical-align: middle">
             <div>
               <mat-icon>management</mat-icon>
@@ -43,17 +33,26 @@
         </a>
       </div>
       <div>
-        <a
-          mat-list-item
-          routerLink="/settings"
-          routerLinkActive="active"
-          ariaCurrentWhenActive="page"
-        >
+        <a class="anchor-tag-router" mat-list-item routerLink="/settings" routerLinkActive="active"
+          ariaCurrentWhenActive="page">
           <div style="align-items: center; gap: 5px; display: flex; vertical-align: middle">
             <div>
               <mat-icon>settings</mat-icon>
             </div>
             <span *ngIf="isSideNavOpened">Settings</span>
+          </div>
+        </a>
+      </div>
+      <div>
+        <a class="anchor-tag-router" mat-list-item routerLink="/department" routerLinkActive="active"
+          ariaCurrentWhenActive="page">
+          <div style="align-items: center; gap: 5px; display: flex; vertical-align: middle">
+            <div>
+              <span class="material-icons-sharp">
+                window
+              </span>
+            </div>
+            <span *ngIf="isSideNavOpened">Departments</span>
           </div>
         </a>
       </div>
@@ -69,23 +68,13 @@
       <div class="user-info">
         <span class="user-name">John Doe</span>
         <mat-icon class="profile-icon">account_circle</mat-icon>
-        <span
-          class="logout"
-          tabindex="0"
-          role="button"
-          (click)="logout()"
-          (keydown.enter)="logout()"
-          >Logout</span
-        >
+        <span class="logout" tabindex="0" role="button" (click)="logout()" (keydown.enter)="logout()">Logout</span>
       </div>
     </mat-toolbar>
 
     <div class="content">
-      <button class="mb-10"
-        *ngIf="showBackButton && currentUrl.includes('/management')"
-        mat-stroked-button
-        (click)="goBack()"
-      >
+      <button class="mb-10" *ngIf="showBackButton && currentUrl.includes('/management')" mat-stroked-button
+        (click)="goBack()">
         ← Back
       </button>
       <router-outlet />

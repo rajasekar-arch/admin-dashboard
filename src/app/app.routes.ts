@@ -30,6 +30,11 @@ export const routes: Routes = [
           import('./modules/settings/settings.component').then((m) => m.SettingsComponent), // child route component that the router renders
       },
       {
+        path: 'department',
+        loadComponent: () =>
+          import('./modules/departments/departments.component').then((m) => m.DepartmentsComponent), // child route component that the router renders
+      },
+      {
         path: 'management/leaves-management', // child route path
         title: 'Leave-Management',
         loadComponent: () =>
