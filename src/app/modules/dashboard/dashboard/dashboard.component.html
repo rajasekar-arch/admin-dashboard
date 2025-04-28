@@ -1,5 +1,39 @@
 <div class="home">
     <div class="header">Welcome to the Admin Dashboard</div>
-    <div class="img">
+    <div class="dashboard-container">
+        <!-- Summary Cards -->
+        <div class="cards-container">
+            <mat-card class="stat-card">
+                <h2>{{ totalUsers }}</h2>
+                <p>Total Users</p>
+            </mat-card>
+
+            <mat-card class="stat-card">
+                <h2>{{ activeUsers }}</h2>
+                <p>Active Users</p>
+            </mat-card>
+
+            <mat-card class="stat-card">
+                <h2>{{ newUsers }}</h2>
+                <p>New Signups</p>
+            </mat-card>
+        </div>
+
+        <!-- Charts -->
+        <div class="charts-container">
+            <div class="chart-card">
+                <h3>Users by Role</h3>
+                <canvas baseChart [type]="'pie'" [datasets]="pieChartDatasets" [labels]="pieChartLabels"
+                    [options]="pieChartOptions" [plugins]="pieChartPlugins" [legend]="pieChartLegend">
+                </canvas>
+            </div>
+
+            <div class="chart-card">
+                <h3>New Users Over Time</h3>
+                <canvas baseChart width="400" height="400" [type]="'line'" [data]="lineChartData"
+                    [options]="lineChartOptions" [legend]="lineChartLegend">
+                </canvas>
+            </div>
+        </div>
     </div>
 </div>
