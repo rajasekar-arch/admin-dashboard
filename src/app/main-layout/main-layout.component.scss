@@ -4,14 +4,15 @@
 
   .sidenav {
     width: 20%;
-    min-width: 220px;
-    max-width: 300px;
+    min-width: 200px;
+    max-width: 250px;
     transition: width 0.3s ease;
     overflow-x: hidden;
     background-color: #c5f6fd;
   }
 
   .nav-content {
+    width: auto;
     height: 100%;
     overflow: hidden;
   }

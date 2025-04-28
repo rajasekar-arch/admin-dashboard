@@ -30,8 +30,6 @@ export class DashboardComponent {
     },
   ];
   public pieChartLegend = true;
-  public pieChartPlugins = [];
-
   
   // Line chart data
 
