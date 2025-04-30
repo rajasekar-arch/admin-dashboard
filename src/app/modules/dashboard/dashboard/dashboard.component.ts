@@ -23,7 +23,7 @@ export class DashboardComponent {
   public pieChartOptions: ChartOptions<'pie'> = {
     responsive: false,
   };
-  public pieChartLabels = [['Download', 'Sales'], ['In', 'Store', 'Sales'], 'Mail Sales'];
+  public pieChartLabels = [['users', 'count'], ['Admin', 'Employees', 'Count'], 'Total Count'];
   public pieChartDatasets = [
     {
       data: [300, 500, 100],
@@ -46,7 +46,7 @@ export class DashboardComponent {
     datasets: [
       {
         data: [ 65, 59, 80, 81, 56, 55, 40 ],
-        label: 'Series A',
+        label: 'Users Registration',
         fill: true,
         tension: 0.5,
         borderColor: 'black',
