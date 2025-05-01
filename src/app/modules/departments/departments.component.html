@@ -1,1 +1,28 @@
-<p>departments works!</p>
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+    <!-- Parent node -->
+    <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodeToggle>
+      <li>
+        <div class="mat-tree-node">
+          <button mat-icon-button matTreeNodeToggle>
+            <mat-icon>
+              {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+            </mat-icon>
+          </button>
+          {{node.name}}
+        </div>
+      </li>
+    </mat-tree-node>
+  
+    <!-- Leaf node -->
+    <mat-tree-node *matTreeNodeDef="let node">
+      <li>
+        <div class="mat-tree-node">
+          <button mat-icon-button disabled>
+     
+          </button>
+          {{node.name}}
+        </div>
+      </li>
+    </mat-tree-node>
+  </mat-tree>
+  
