@@ -15,16 +15,31 @@ import { IProfileDetails } from '../../interfaces/settings.interface';
 export class SettingsComponent implements OnInit {
   public profileForm!: FormGroup;
 
-  // Track which fields are in edit mode
-  public editMode: Record<string, boolean> = {};
-
   public fields: IProfileDetails[] = [
     { label: 'First Name', key: 'firstName', type: 'text' },
     { label: 'Last Name', key: 'lastName', type: 'text' },
     { label: 'Mobile Number', key: 'mobile', type: 'tel' },
     { label: 'Email ID', key: 'email', type: 'email' },
   ];
-
+  editMode: Record<string, boolean> = {};
+  currentlyEditingKey: string | null = null;
+  
+  enableEdit(key: string): void {
+    if (!this.currentlyEditingKey) {
+      this.editMode[key] = true;
+      this.currentlyEditingKey = key;
+    }
+  }
+  
+  saveField(key: string): void {
+    const control = this.profileForm.get(key);
+    if (control?.valid) {
+      this.editMode[key] = false;
+      this.currentlyEditingKey = null;
+    }
+    else control?.markAsTouched(); // Show validation message
+  }
+  
   constructor(private fb: FormBuilder) {}
 
   public ngOnInit() {
@@ -45,16 +60,6 @@ export class SettingsComponent implements OnInit {
     this.fields.forEach((field) => {
       this.editMode[field.key] = false;
     });
-  }
-
-  public enableEdit(fieldKey: string): void {
-    this.editMode[fieldKey] = true;
-  }
-
-  public saveField(fieldKey: string): void {
-    const control = this.profileForm.get(fieldKey);
-    if (control?.valid) this.editMode[fieldKey] = false;
-    else control?.markAsTouched(); // Show validation message
   }
 
   public submitForm(): void {

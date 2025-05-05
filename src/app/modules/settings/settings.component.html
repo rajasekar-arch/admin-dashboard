@@ -1,54 +1,37 @@
 <div class="form-container">
   <form [formGroup]="profileForm" (ngSubmit)="submitForm()">
-    <div class="form-field" *ngFor="let field of fields">
+    <div class="form-field" *ngFor="let field of fields"
+      [class.disabled]="currentlyEditingKey && currentlyEditingKey !== field.key">
       <mat-label>{{ field.label }}</mat-label>
       <div class="input-edit-wrapper">
         <ng-container *ngIf="!editMode[field.key]; else editField">
           <span class="readonly-text">{{ profileForm.get(field.key)?.value }}</span>
-          <span
-            class="edit-icon"
-            (click)="enableEdit(field.key)"
-            (keydown.enter)="enableEdit(field.key)"
-            tabindex="0"
-            title="Edit"
-            >&#9998;</span
-          >
+          <span class="edit-icon" *ngIf="!currentlyEditingKey" (click)="enableEdit(field.key)"
+            (keydown.enter)="enableEdit(field.key)" tabindex="0" title="Edit">&#9998;</span>
         </ng-container>
 
         <ng-template #editField>
-          <mat-form-field style="width: 100%">
-            <input
-              [type]="field.type"
-              [formControlName]="field.key"
-              [id]="field.key"
-              [class.disabled]="profileForm.get(field.key)?.invalid"
-            />
+          <mat-form-field class="edit-field" appearance="outline">
+            <input matInput [type]="field.type" [formControlName]="field.key" [id]="field.key" autocomplete="off" />
           </mat-form-field>
 
-          <span
-            class="save-icon"
-            [class.disabled]="profileForm.get(field.key)?.invalid"
+          <span class="save-icon" [class.disabled]="profileForm.get(field.key)?.invalid"
             [title]="profileForm.get(field.key)?.invalid ? 'Fix validation first' : 'Save'"
             (click)="profileForm.get(field.key)?.valid && saveField(field.key)"
-            (keydown.enter)="profileForm.get(field.key)?.valid && saveField(field.key)"
-            (keydown.space)="profileForm.get(field.key)?.valid && saveField(field.key)"
-            tabindex="0"
-          >
+            (keydown.enter)="profileForm.get(field.key)?.valid && saveField(field.key)" tabindex="0">
             &#10004;
           </span>
         </ng-template>
       </div>
 
       <div class="error-message" *ngIf="profileForm.get(field.key)?.invalid && editMode[field.key]">
-        <small *ngIf="profileForm.get(field.key)?.errors?.['required']"
-          >This field is required.</small
-        >
-        <small *ngIf="field.key === 'email' && profileForm.get(field.key)?.errors?.['email']"
-          >Invalid email.</small
-        >
-        <small *ngIf="field.key === 'mobile' && profileForm.get(field.key)?.errors?.['pattern']"
-          >Invalid mobile number.</small
-        >
+        <small *ngIf="profileForm.get(field.key)?.errors?.['required']">This field is required.</small>
+        <small *ngIf="field.key === 'email' && profileForm.get(field.key)?.errors?.['email']">
+          Invalid email.
+        </small>
+        <small *ngIf="field.key === 'mobile' && profileForm.get(field.key)?.errors?.['pattern']">
+          Invalid mobile number.
+        </small>
       </div>
     </div>
 
