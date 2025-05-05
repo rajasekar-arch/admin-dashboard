@@ -23,23 +23,22 @@ export class SettingsComponent implements OnInit {
   ];
   editMode: Record<string, boolean> = {};
   currentlyEditingKey: string | null = null;
-  
+
   enableEdit(key: string): void {
     if (!this.currentlyEditingKey) {
       this.editMode[key] = true;
       this.currentlyEditingKey = key;
     }
   }
-  
+
   saveField(key: string): void {
     const control = this.profileForm.get(key);
     if (control?.valid) {
       this.editMode[key] = false;
       this.currentlyEditingKey = null;
-    }
-    else control?.markAsTouched(); // Show validation message
+    } else control?.markAsTouched(); // Show validation message
   }
-  
+
   constructor(private fb: FormBuilder) {}
 
   public ngOnInit() {

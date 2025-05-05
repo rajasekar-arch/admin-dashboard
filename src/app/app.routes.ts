@@ -25,6 +25,13 @@ export const routes: Routes = [
     children: [
       { path: 'dashboard', component: DashboardComponent },
       {
+        path: 'customize',
+        loadComponent: () =>
+          import('./modules/customize-background/customize-background.component').then(
+            (m) => m.CustomizeBackgroundComponent,
+          ), // child route component that the router renders
+      },
+      {
         path: 'settings',
         loadComponent: () =>
           import('./modules/settings/settings.component').then((m) => m.SettingsComponent), // child route component that the router renders

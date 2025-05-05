@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>Create Help Request</h2>
+<mat-dialog-content>
+  <form (ngSubmit)="submitRequest()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Description</mat-label>
+      <textarea matInput [(ngModel)]="requestDescription" name="description" required></textarea>
+    </mat-form-field>
+    <div style="text-align: right">
+      <button mat-button (click)="close()">Cancel</button>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+    </div>
+  </form>
+</mat-dialog-content>

@@ -1,19 +1,23 @@
 <mat-accordion>
-    <mat-expansion-panel *ngFor="let category of documents | keyvalue" class="document-panel">
-        <mat-expansion-panel-header>
-            <mat-panel-title>{{ category.key }}</mat-panel-title>
-        </mat-expansion-panel-header>
+  <mat-expansion-panel *ngFor="let category of documents | keyvalue" class="document-panel">
+    <mat-expansion-panel-header>
+      <mat-panel-title>{{ category.key }}</mat-panel-title>
+    </mat-expansion-panel-header>
 
-        <mat-list>
-            <mat-list-item class="doc-list-item" disableRipple *ngFor="let doc of category.value"
-                (click)="openPreview(doc)">
-                <mat-icon matListIcon>description</mat-icon>
-                <div class="doc-info">
-                    <h4>{{ doc.title }}</h4>
-                    <p *ngIf="doc.description">{{ doc.description }}</p>
-                </div>
-                <mat-icon class="view-icon">visibility</mat-icon>
-            </mat-list-item>
-        </mat-list>
-    </mat-expansion-panel>
+    <mat-list>
+      <mat-list-item
+        class="doc-list-item"
+        disableRipple
+        *ngFor="let doc of category.value"
+        (click)="openPreview(doc)"
+      >
+        <mat-icon matListIcon>description</mat-icon>
+        <div class="doc-info">
+          <h4>{{ doc.title }}</h4>
+          <p *ngIf="doc.description">{{ doc.description }}</p>
+        </div>
+        <mat-icon class="view-icon">visibility</mat-icon>
+      </mat-list-item>
+    </mat-list>
+  </mat-expansion-panel>
 </mat-accordion>

@@ -1,4 +1,4 @@
 export interface CalendarCell {
-    date: Date | null;
-    note?: string;
-  }
+  date: Date | null;
+  note?: string;
+}

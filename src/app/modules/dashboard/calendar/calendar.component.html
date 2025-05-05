@@ -1,33 +1,33 @@
 <div class="calendar-container">
-    <div class="calendar-controls">
-        <button (click)="prevMonth()">&#171; Prev</button>
+  <div class="calendar-controls">
+    <button (click)="prevMonth()">&#171; Prev</button>
 
-        <select [(ngModel)]="selectedMonth" (change)="onMonthOrYearChange()">
-            <option *ngFor="let month of months; index as i" [value]="i">{{ month }}</option>
-        </select>
+    <select [(ngModel)]="selectedMonth" (change)="onMonthOrYearChange()">
+      <option *ngFor="let month of months; index as i" [value]="i">{{ month }}</option>
+    </select>
 
-        <select [(ngModel)]="selectedYear" (change)="onMonthOrYearChange()">
-            <option *ngFor="let year of years" [value]="year">{{ year }}</option>
-        </select>
+    <select [(ngModel)]="selectedYear" (change)="onMonthOrYearChange()">
+      <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+    </select>
 
-        <button (click)="nextMonth()">Next &#187;</button>
-    </div>
+    <button (click)="nextMonth()">Next &#187;</button>
+  </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th *ngFor="let day of ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']">{{ day }}</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let week of weeks">
-                <td *ngFor="let cell of week" class="cell">
-                    <div *ngIf="cell.date">
-                        <strong>{{ cell.date.getDate() }}</strong>
-                        <p class="note" *ngIf="cell.note">{{ cell.note }}</p>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+  <table>
+    <thead>
+      <tr>
+        <th *ngFor="let day of ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']">{{ day }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let week of weeks">
+        <td *ngFor="let cell of week" class="cell">
+          <div *ngIf="cell.date">
+            <strong>{{ cell.date.getDate() }}</strong>
+            <p class="note" *ngIf="cell.note">{{ cell.note }}</p>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

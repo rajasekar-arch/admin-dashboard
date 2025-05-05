@@ -1,0 +1,69 @@
+<mat-toolbar color="primary" class="header-toolbar">
+  <!-- Side Menu Button -->
+  <button mat-icon-button (click)="drawer.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <!-- Logo -->
+  <div class="logo">
+    <img src="assets/logo.png" alt="App Logo" width="200" height="70" />
+  </div>
+
+  <!-- Spacer -->
+  <span class="flex-spacer"></span>
+
+  <!-- Global Search -->
+  <mat-form-field appearance="outline" class="search-field">
+    <mat-label>Search</mat-label>
+    <input matInput [(ngModel)]="searchText" placeholder="Search..." />
+    <button mat-icon-button matSuffix (click)="onSearch()">
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <span class="flex-spacer"></span>
+
+  <!-- Notifications -->
+  <button mat-icon-button>
+    <mat-icon>notifications</mat-icon>
+  </button>
+
+  <!-- Profile Image -->
+  <button mat-icon-button class="profile-button">
+    <img src="assets/profile.jpg" alt="Profile" class="profile-image" />
+  </button>
+</mat-toolbar>
+
+<!-- Side Drawer -->
+<mat-drawer-container class="drawer-container">
+  <mat-drawer #drawer mode="side" class="app-drawer" opened="false">
+    <div class="sidenav-toggle">
+      <button mat-icon-button (click)="toggleSideNav()">
+        <mat-icon>{{ isSideNavOpened ? 'chevron_left' : 'chevron_right' }}</mat-icon>
+      </button>
+    </div>
+    <mat-nav-list class="nav-list">
+      <div *ngFor="let item of sideMenuList">
+        <a
+          class="anchor-tag-router"
+          mat-list-item
+          routerLink="{{ item.routerName }}"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+        >
+          <div class="anchor-tag">
+            <span class="material-icons-sharp">
+              {{ item.iconName }}
+            </span>
+            <span *ngIf="isSideNavOpened">{{ item.name }}</span>
+          </div>
+        </a>
+      </div>
+    </mat-nav-list>
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <ng-content></ng-content>
+    <router-outlet />
+  </mat-drawer-content>
+</mat-drawer-container>

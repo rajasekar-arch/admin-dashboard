@@ -17,7 +17,7 @@ export class ContactsComponent {
       email: 'john@example.com',
       phone: '1234567890',
       address: '123 Street, City',
-      imageUrl: 'https://i.pravatar.cc/150?img=1'
+      imageUrl: 'https://i.pravatar.cc/150?img=1',
     },
     {
       id: 2,
@@ -25,7 +25,7 @@ export class ContactsComponent {
       email: 'jane@example.com',
       phone: '9876543210',
       address: '456 Avenue, City',
-      imageUrl: 'https://i.pravatar.cc/150?img=2'
+      imageUrl: 'https://i.pravatar.cc/150?img=2',
     },
     {
       id: 3,
@@ -33,9 +33,9 @@ export class ContactsComponent {
       email: 'sam@example.com',
       phone: '5555555555',
       address: '789 Road, City',
-      imageUrl: 'https://i.pravatar.cc/150?img=3'
-    }
-  ]
+      imageUrl: 'https://i.pravatar.cc/150?img=3',
+    },
+  ];
 
   selectedContact: Contact | null = null;
 

@@ -16,8 +16,18 @@ export class CalendarComponent implements OnInit {
 
   years: number[] = [];
   months: string[] = [
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
   ];
 
   weeks: CalendarCell[][] = [];
@@ -25,7 +35,7 @@ export class CalendarComponent implements OnInit {
   notes: Record<string, string> = {
     '2025-05-01': 'Labor Day',
     '2025-05-10': 'Project Deadline',
-    '2025-05-15': 'Team Meeting'
+    '2025-05-15': 'Team Meeting',
   };
 
   public ngOnInit(): void {

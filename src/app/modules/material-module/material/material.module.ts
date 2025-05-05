@@ -100,7 +100,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatCardSubtitle,
     MatCardTitle,
     MatCard,
-    MatExpansionModule, MatDialogModule
+    MatExpansionModule,
+    MatDialogModule,
+    MatTabsModule,
   ],
   providers: [MatDatepickerModule],
 })

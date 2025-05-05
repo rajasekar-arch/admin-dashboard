@@ -1,0 +1,39 @@
+<div class="customizer">
+  <mat-form-field appearance="outline" class="search-box">
+    <mat-label>Search Background (e.g. mountain, blue color)</mat-label>
+    <input matInput [(ngModel)]="query" (keyup.enter)="analyzeQuery()" />
+    <button mat-button matSuffix (click)="analyzeQuery()">
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <!-- Image Results -->
+  <div class="image-results" *ngIf="backgroundImages.length">
+    <h3>Select Background Image</h3>
+    <div class="image-grid">
+      <img
+        *ngFor="let img of backgroundImages; let i = index"
+        [src]="img"
+        alt="images-{{ i }}"
+        (click)="applyBackgroundImage(img)"
+        tabindex="0"
+        (keypress.enter)="applyBackgroundImage(img)"
+      />
+    </div>
+  </div>
+
+  <!-- Color Results -->
+  <div class="color-results" *ngIf="colors.length">
+    <h3>Select Background Color</h3>
+    <div class="color-grid">
+      <div
+        *ngFor="let color of colors"
+        class="color-box"
+        [style.background]="color"
+        (keydown.enter)="applyBackgroundColor(color)"
+        (click)="applyBackgroundColor(color)"
+        tabindex="0"
+      ></div>
+    </div>
+  </div>
+</div>

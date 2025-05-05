@@ -1,36 +1,31 @@
 <div class="container">
-    <!-- Left: Contacts List -->
-    <div class="left-panel">
-      <h3>Contacts</h3>
-      <ul>
-        <li
-          *ngFor="let contact of contacts"
-          (click)="selectContact(contact)"
-          (keydown.enter)="selectContact(contact)"
-          tabindex="0"
-        >
-          <img [src]="contact.imageUrl" alt="Avatar" class="avatar-sm" />
-          {{ contact.name }}
-        </li>
-      </ul>
-    </div>
-  
-    <!-- Right: Contact Details -->
-    <div class="right-panel">
-      <ng-container *ngIf="selectedContact; else noSelection">
-        <img
-          [src]="selectedContact.imageUrl"
-          alt="{{ selectedContact.name }}"
-          class="avatar-lg"
-        />
-        <h3>{{ selectedContact.name }}</h3>
-        <p><strong>Email:</strong> {{ selectedContact.email }}</p>
-        <p><strong>Phone:</strong> {{ selectedContact.phone }}</p>
-        <p><strong>Address:</strong> {{ selectedContact.address }}</p>
-      </ng-container>
-      <ng-template #noSelection>
-        <p>Select a contact to view details.</p>
-      </ng-template>
-    </div>
+  <!-- Left: Contacts List -->
+  <div class="left-panel">
+    <h3>Contacts</h3>
+    <ul>
+      <li
+        *ngFor="let contact of contacts"
+        (click)="selectContact(contact)"
+        (keydown.enter)="selectContact(contact)"
+        tabindex="0"
+      >
+        <img [src]="contact.imageUrl" alt="Avatar" class="avatar-sm" />
+        {{ contact.name }}
+      </li>
+    </ul>
   </div>
-  
+
+  <!-- Right: Contact Details -->
+  <div class="right-panel">
+    <ng-container *ngIf="selectedContact; else noSelection">
+      <img [src]="selectedContact.imageUrl" alt="{{ selectedContact.name }}" class="avatar-lg" />
+      <h3>{{ selectedContact.name }}</h3>
+      <p><strong>Email:</strong> {{ selectedContact.email }}</p>
+      <p><strong>Phone:</strong> {{ selectedContact.phone }}</p>
+      <p><strong>Address:</strong> {{ selectedContact.address }}</p>
+    </ng-container>
+    <ng-template #noSelection>
+      <p>Select a contact to view details.</p>
+    </ng-template>
+  </div>
+</div>
