@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.left-panel {
+  width: 30%;
+  border-right: 1px solid #ccc;
+  padding: 1rem;
+  background: #f9f9f9;
+  overflow-y: auto; /* Enables vertical scroll */
+  max-height: 100vh; /* Limits height to viewport */
+}
+
+
+
+.right-panel {
+  width: 70%;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+li:hover,
+li:focus {
+  background-color: #e0e0e0;
+  outline: none;
+}
+
+.avatar-sm {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.avatar-lg {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
