@@ -20,7 +20,7 @@ export class SignInComponent {
   ) {}
 
   public submitSignIn(event: NgForm): void {
-    const ngFormData: {email: string,password: string} = event.value;
+    const ngFormData: { email: string; password: string } = event.value;
     const result = this.auth.signIn(ngFormData.email?.trim(), ngFormData.password?.trim());
     if (result.success) {
       this.router.navigate(['/dashboard']);

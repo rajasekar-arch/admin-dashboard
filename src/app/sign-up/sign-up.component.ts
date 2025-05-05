@@ -19,8 +19,8 @@ export class SignUpComponent {
     private router: Router,
   ) {}
 
-  public submitSignUp(event:NgForm): void {
-    const ngFormData: {name:string,email: string,password: string} = event.value;
+  public submitSignUp(event: NgForm): void {
+    const ngFormData: { name: string; email: string; password: string } = event.value;
     const result = this.auth.signUp({
       name: ngFormData.name?.trim(),
       email: ngFormData.email?.trim(),
