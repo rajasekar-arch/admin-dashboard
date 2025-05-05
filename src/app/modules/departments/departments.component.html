@@ -1,28 +1,23 @@
-<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
-    <!-- Parent node -->
-    <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodeToggle>
-      <li>
-        <div class="mat-tree-node">
-          <button mat-icon-button matTreeNodeToggle>
-            <mat-icon>
-              {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-            </mat-icon>
-          </button>
-          {{node.name}}
-        </div>
-      </li>
-    </mat-tree-node>
-  
-    <!-- Leaf node -->
-    <mat-tree-node *matTreeNodeDef="let node">
-      <li>
-        <div class="mat-tree-node">
-          <button mat-icon-button disabled>
-     
-          </button>
-          {{node.name}}
-        </div>
-      </li>
-    </mat-tree-node>
-  </mat-tree>
-  
+<mat-tree #tree [dataSource]="dataSource" [childrenAccessor]="childrenAccessor">
+  <!-- This is the tree node template for leaf nodes -->
+  <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+    <!-- use a disabled button to provide padding for tree leaf -->
+    <!-- eslint-disable-next-line @angular-eslint/template/elements-content -->
+    <button mat-icon-button disabled></button>
+    {{ node.name }}
+  </mat-tree-node>
+  <!-- This is the tree node template for expandable nodes -->
+  <mat-tree-node
+    *matTreeNodeDef="let node; when: hasChild"
+    matTreeNodePadding
+    matTreeNodeToggle
+    [cdkTreeNodeTypeaheadLabel]="node.name"
+  >
+    <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+      <mat-icon class="mat-icon-rtl-mirror">
+        {{ tree.isExpanded(node) ? 'expand_more' : 'chevron_right' }}
+      </mat-icon>
+    </button>
+    {{ node.name }}
+  </mat-tree-node>
+</mat-tree>

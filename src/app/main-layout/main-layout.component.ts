@@ -30,33 +30,33 @@ export class MainLayoutComponent implements OnInit {
       name: 'Dashboard',
       id: 1,
       routerName: '/dashboard',
-      iconName: 'dashboard'
+      iconName: 'dashboard',
     },
     {
       name: 'Departments',
       id: 2,
       routerName: '/department',
-      iconName: 'account_tree'
+      iconName: 'account_tree',
     },
     {
       name: 'Management',
       id: 3,
       routerName: '/management',
-      iconName: 'manage_accounts'
+      iconName: 'manage_accounts',
     },
     {
       name: 'Settings',
       id: 4,
       routerName: '/settings',
-      iconName: 'admin_panel_settings'
-    }
-  ]
+      iconName: 'admin_panel_settings',
+    },
+  ];
 
   constructor(
     private location: Location,
     private router: Router,
     private auth: AuthService,
-  ) { }
+  ) {}
 
   public ngOnInit(): void {
     this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {

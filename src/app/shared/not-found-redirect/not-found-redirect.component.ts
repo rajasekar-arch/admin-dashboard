@@ -6,10 +6,13 @@ import { AuthService } from '../../services/auth.service';
   selector: 'app-not-found-redirect',
   imports: [RouterModule],
   templateUrl: './not-found-redirect.component.html',
-  styleUrl: './not-found-redirect.component.scss'
+  styleUrl: './not-found-redirect.component.scss',
 })
 export class NotFoundRedirectComponent {
-  constructor(private auth: AuthService, private router: Router) {
+  constructor(
+    private auth: AuthService,
+    private router: Router,
+  ) {
     if (this.auth.isLoggedIn()) {
       this.router.navigate(['/dashboard']);
     } else {

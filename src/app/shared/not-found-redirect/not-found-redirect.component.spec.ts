@@ -8,9 +8,8 @@ describe('NotFoundRedirectComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NotFoundRedirectComponent]
-    })
-    .compileComponents();
+      imports: [NotFoundRedirectComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(NotFoundRedirectComponent);
     component = fixture.componentInstance;

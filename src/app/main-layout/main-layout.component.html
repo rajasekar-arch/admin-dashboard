@@ -10,14 +10,19 @@
 
     <!-- Navigation links -->
     <mat-nav-list class="nav-list">
-      <div *ngFor="let item of sideMenuList;">
-        <a class="anchor-tag-router" mat-list-item routerLink="{{item.routerName}}" routerLinkActive="active"
-          ariaCurrentWhenActive="page">
+      <div *ngFor="let item of sideMenuList">
+        <a
+          class="anchor-tag-router"
+          mat-list-item
+          routerLink="{{ item.routerName }}"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+        >
           <div class="anchor-tag">
             <span class="material-icons-sharp">
               {{ item.iconName }}
             </span>
-            <span *ngIf="isSideNavOpened">{{item.name}}</span>
+            <span *ngIf="isSideNavOpened">{{ item.name }}</span>
           </div>
         </a>
       </div>
@@ -33,13 +38,24 @@
       <div class="user-info">
         <span class="user-name">John Doe</span>
         <mat-icon class="profile-icon">account_circle</mat-icon>
-        <span class="logout" tabindex="0" role="button" (click)="logout()" (keydown.enter)="logout()">Logout</span>
+        <span
+          class="logout"
+          tabindex="0"
+          role="button"
+          (click)="logout()"
+          (keydown.enter)="logout()"
+          >Logout</span
+        >
       </div>
     </mat-toolbar>
 
     <div class="content">
-      <button class="mb-10" *ngIf="showBackButton && currentUrl.includes('/management')" mat-stroked-button
-        (click)="goBack()">
+      <button
+        class="mb-10"
+        *ngIf="showBackButton && currentUrl.includes('/management')"
+        mat-stroked-button
+        (click)="goBack()"
+      >
         ← Back
       </button>
       <router-outlet />

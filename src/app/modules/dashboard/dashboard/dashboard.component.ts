@@ -30,33 +30,24 @@ export class DashboardComponent {
     },
   ];
   public pieChartLegend = true;
-  
+
   // Line chart data
 
   public lineChartData: ChartConfiguration<'line'>['data'] = {
-    labels: [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July'
-    ],
+    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
     datasets: [
       {
-        data: [ 65, 59, 80, 81, 56, 55, 40 ],
+        data: [65, 59, 80, 81, 56, 55, 40],
         label: 'Users Registration',
         fill: true,
         tension: 0.5,
         borderColor: 'black',
-        backgroundColor: 'rgba(255,0,0,0.3)'
-      }
-    ]
+        backgroundColor: 'rgba(255,0,0,0.3)',
+      },
+    ],
   };
   public lineChartOptions: ChartOptions<'line'> = {
-    responsive: false
+    responsive: false,
   };
   public lineChartLegend = true;
-
 }

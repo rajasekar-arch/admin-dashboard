@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-help-desk',
   imports: [],
   templateUrl: './help-desk.component.html',
-  styleUrl: './help-desk.component.scss'
+  styleUrl: './help-desk.component.scss',
 })
-export class HelpDeskComponent {
-
-}
+export class HelpDeskComponent {}

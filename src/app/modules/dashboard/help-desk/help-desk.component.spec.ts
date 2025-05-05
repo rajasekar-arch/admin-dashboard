@@ -8,9 +8,8 @@ describe('HelpDeskComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HelpDeskComponent]
-    })
-    .compileComponents();
+      imports: [HelpDeskComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HelpDeskComponent);
     component = fixture.componentInstance;

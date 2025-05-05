@@ -131,5 +131,5 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: '**', component: NotFoundRedirectComponent }
+  { path: '**', component: NotFoundRedirectComponent },
 ];
