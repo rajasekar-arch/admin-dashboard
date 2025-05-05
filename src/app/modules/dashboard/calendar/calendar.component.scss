@@ -1,0 +1,43 @@
+.calendar-container {
+  max-width: 750px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+.calendar-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+button {
+  padding: 6px 10px;
+  font-size: 14px;
+}
+
+select {
+  padding: 6px;
+  font-size: 14px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  vertical-align: top;
+  height: 100px;
+}
+
+.note {
+  margin-top: 5px;
+  font-size: 0.85em;
+  color: #555;
+}
