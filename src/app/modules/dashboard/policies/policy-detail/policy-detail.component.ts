@@ -1,21 +1,28 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { MaterialModule } from '../../material-module/material/material.module';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { MaterialModule } from '../../../material-module/material/material.module';
+import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-policies',
+  selector: 'app-policy-detail',
   imports: [CommonModule, MaterialModule],
-  templateUrl: './policies.component.html',
-  styleUrl: './policies.component.scss',
+  templateUrl: './policy-detail.component.html',
+  styleUrl: './policy-detail.component.scss',
 })
-export class PoliciesComponent {
-  constructor(private router: Router) {}
+export class PolicyDetailComponent implements OnInit {
+  categoryKey = '';
+  categoryTitle = '';
+  policies: string[] = [];
 
-  categories = [
-    {
+  constructor(
+    private route: ActivatedRoute,
+    private location: Location,
+  ) {}
+
+  allPolicies = {
+    hr: {
       title: 'HR & Employee Policies',
-      key: 'hr',
       items: [
         'Employee Code of Conduct',
         'Work From Home / Remote Work Policy',
@@ -29,9 +36,8 @@ export class PoliciesComponent {
         'Resignation & Termination Policy',
       ],
     },
-    {
+    it: {
       title: 'IT & Security Policies',
-      key: 'it',
       items: [
         'Acceptable Use Policy (AUP)',
         'Data Protection and Privacy Policy',
@@ -42,9 +48,8 @@ export class PoliciesComponent {
         'Remote Access and VPN Policy',
       ],
     },
-    {
+    dev: {
       title: 'Development & Project Policies',
-      key: 'dev',
       items: [
         'SDLC Policy',
         'Code Review and Version Control Policy',
@@ -54,9 +59,8 @@ export class PoliciesComponent {
         'Bug Reporting Policy',
       ],
     },
-    {
+    legal: {
       title: 'Legal & Compliance Policies',
-      key: 'legal',
       items: [
         'Intellectual Property Policy',
         'Confidentiality and NDA Policy',
@@ -65,9 +69,8 @@ export class PoliciesComponent {
         'Copyright Compliance',
       ],
     },
-    {
+    finance: {
       title: 'Financial Policies',
-      key: 'finance',
       items: [
         'Expense Reimbursement Policy',
         'Travel and Business Trip Policy',
@@ -75,9 +78,8 @@ export class PoliciesComponent {
         'Procurement Policy',
       ],
     },
-    {
+    culture: {
       title: 'Workplace & Culture',
-      key: 'culture',
       items: [
         'Workplace Safety Policy',
         'Flexible Work Hours Policy',
@@ -86,9 +88,17 @@ export class PoliciesComponent {
         'Company Events Policy',
       ],
     },
-  ];
+  };
 
-  navigateToDetail(category: string): void {
-    this.router.navigate(['/policies', category]);
+  ngOnInit(): void {
+    this.categoryKey = this.route.snapshot.paramMap.get('category') || '';
+    const categoryData = this.allPolicies[this.categoryKey as keyof typeof this.allPolicies];
+    if (categoryData) {
+      this.categoryTitle = categoryData.title;
+      this.policies = categoryData.items;
+    }
+  }
+  goBack(): void {
+    this.location.back();
   }
 }

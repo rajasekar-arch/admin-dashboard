@@ -7,6 +7,7 @@ import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
 import { AuthGuard } from './guards/auth.guard';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { NotFoundRedirectComponent } from './shared/not-found-redirect/not-found-redirect.component';
+import { PolicyDetailComponent } from './modules/dashboard/policies/policy-detail/policy-detail.component';
 
 export const routes: Routes = [
   {
@@ -31,6 +32,7 @@ export const routes: Routes = [
             (m) => m.CustomizeBackgroundComponent,
           ), // child route component that the router renders
       },
+      { path: 'policies/:category', component: PolicyDetailComponent },
       {
         path: 'settings',
         loadComponent: () =>

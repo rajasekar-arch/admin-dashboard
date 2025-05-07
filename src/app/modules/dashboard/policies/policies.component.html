@@ -1,1 +1,23 @@
-<p>policies works!</p>
+<div class="policy-container" fxLayout="row wrap" fxLayoutGap="20px">
+  <mat-card
+    *ngFor="let category of categories"
+    class="policy-card"
+    (click)="navigateToDetail(category.key)"
+  >
+    <mat-card-title>{{ category.title }}</mat-card-title>
+    <mat-card-content>
+      <mat-accordion>
+        <mat-expansion-panel disabled>
+          <mat-expansion-panel-header>
+            <mat-panel-title> View Policies </mat-panel-title>
+          </mat-expansion-panel-header>
+          <ul>
+            <li *ngFor="let item of category.items">
+              {{ item }}
+            </li>
+          </ul>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-card-content>
+  </mat-card>
+</div>

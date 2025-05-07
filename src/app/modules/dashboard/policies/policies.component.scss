@@ -1,0 +1,47 @@
+.policy-container {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.policy-card {
+  width: 300px;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  border-radius: 12px;
+  margin: 15px;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  mat-card-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  mat-expansion-panel-header {
+    display: none; // Hidden because it’s not meant to expand
+  }
+
+  ul {
+    padding: 0;
+    list-style-type: disc;
+    padding-left: 20px;
+
+    li {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+  }
+
+  .cat-items {
+    text-align: center;
+    margin: 10px 0 0 0;
+  }
+}
