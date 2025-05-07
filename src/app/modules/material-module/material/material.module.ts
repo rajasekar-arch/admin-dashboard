@@ -19,6 +19,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import {
   MatCard,
   MatCardActions,
+  MatCardContent,
   MatCardHeader,
   MatCardModule,
   MatCardSubtitle,
@@ -76,6 +77,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatCardSubtitle,
     MatCardTitle,
     MatCard,
+    MatCardContent,
   ],
   exports: [
     MatButtonModule,
@@ -103,6 +105,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatExpansionModule,
     MatDialogModule,
     MatTabsModule,
+    MatCardContent,
   ],
   providers: [MatDatepickerModule],
 })
