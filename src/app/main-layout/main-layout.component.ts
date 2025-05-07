@@ -59,18 +59,24 @@ export class MainLayoutComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-    this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
-      this.currentUrl = this.router.url;
-      this.showBackButton = this.currentUrl !== '/management';
-    });
+    this.showBackButton = this.currentUrl !== '/management/';
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        this.showBackButton = event.url.includes('/management/');
+      });
   }
 
   public toggleSideNav(): void {
     this.isSideNavOpened = !this.isSideNavOpened;
   }
 
-  public goBack(): void {
-    this.location.back();
+  goBack(): void {
+    if (window.history.length > 1) {
+      this.location.back();
+    } else {
+      this.router.navigate(['/']); // Fallback route
+    }
   }
 
   public logout(): void {

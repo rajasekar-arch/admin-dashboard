@@ -50,12 +50,7 @@
     </mat-toolbar>
 
     <div class="content">
-      <button
-        class="mb-10"
-        *ngIf="showBackButton && currentUrl.includes('/management')"
-        mat-stroked-button
-        (click)="goBack()"
-      >
+      <button class="mb-10" *ngIf="showBackButton" mat-stroked-button (click)="goBack()">
         ← Back
       </button>
       <router-outlet />
