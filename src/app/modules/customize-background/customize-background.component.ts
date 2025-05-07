@@ -10,14 +10,13 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './customize-background.component.scss',
 })
 export class CustomizeBackgroundComponent {
-  query = '';
-  backgroundImages: string[] = [];
-  colors: string[] = [];
+  public query = '';
+  public backgroundImages: string[] = [];
+  public colors: string[] = [];
 
   constructor(private renderer: Renderer2) {}
 
-  analyzeQuery() {
-    debugger;
+  public analyzeQuery(): void {
     this.backgroundImages = [];
     this.colors = [];
 
@@ -41,14 +40,12 @@ export class CustomizeBackgroundComponent {
   }
 
   public applyBackgroundImage(imageUrl: string): void {
-    debugger;
     this.renderer.setStyle(document.body, 'backgroundImage', `url(${imageUrl})`);
     this.renderer.setStyle(document.body, 'backgroundSize', 'cover');
     this.renderer.setStyle(document.body, 'backgroundRepeat', 'no-repeat');
   }
 
   public applyBackgroundColor(color: string) {
-    debugger;
     this.renderer.removeStyle(document.body, 'backgroundImage'); // Clear image
     this.renderer.setStyle(document.body, 'background', color);
     this.renderer.setStyle(document.body, 'backgroundSize', null);
