@@ -13,6 +13,7 @@
     "lint:fix": "ng lint --fix",
     "prettier": "prettier --check \"src/**/*.{ts,html,css,scss,js,json}\"",
     "prettier:fix": "prettier --write \"src/**/*.{ts,html,css,scss,js,json}\"",
+    "fix-all": "npm run lint:fix && npm run prettier:fix",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",

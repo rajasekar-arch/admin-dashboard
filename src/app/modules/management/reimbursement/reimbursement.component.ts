@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-reimbursement',
   imports: [],
   templateUrl: './reimbursement.component.html',
-  styleUrl: './reimbursement.component.scss'
+  styleUrl: './reimbursement.component.scss',
 })
-export class ReimbursementComponent {
-
-}
+export class ReimbursementComponent {}
