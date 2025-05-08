@@ -38,10 +38,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatOptionModule } from '@angular/material/core';
 
 @NgModule({
   imports: [
-    MatCheckboxModule,
     MatCheckboxModule,
     MatButtonModule,
     MatInputModule,
@@ -78,6 +78,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatCardTitle,
     MatCard,
     MatCardContent,
+    MatOptionModule,
   ],
   exports: [
     MatButtonModule,
@@ -107,6 +108,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatTabsModule,
     MatCardContent,
     MatStepperModule,
+    MatOptionModule,
+    MatCheckboxModule,
   ],
   providers: [MatDatepickerModule],
 })

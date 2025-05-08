@@ -1,1 +1,20 @@
-<p>learning-center works!</p>
+<mat-form-field appearance="fill" class="w-100">
+  <mat-label>Select</mat-label>
+  <mat-select [(ngModel)]="selected" (selectionChange)="onSelectionChange($event)" multiple>
+    <mat-checkbox
+      [checked]="isAllSelected()"
+      [indeterminate]="isIndeterminate()"
+      (click)="toggleSelectAll()"
+      (change)="onItemChange($event)"
+    >
+      {{ data[0].name }}
+    </mat-checkbox>
+
+    <!-- Other Options -->
+    <mat-option *ngFor="let option of allOptions" [value]="option">
+      {{ option.name }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+{{ optionItems | json }}
