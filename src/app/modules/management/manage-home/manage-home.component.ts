@@ -70,6 +70,11 @@ export class ManageHomeComponent {
         routerLink: '/management/help-desk',
         subTitle: '',
       },
+      {
+        name: 'Reimbursement',
+        routerLink: '/management/reimbursement',
+        subTitle: '',
+      },
     ],
     (res: IMenuItemsList) => res.name,
   );

@@ -138,6 +138,14 @@ export const routes: Routes = [
             (m) => m.ManageHomeComponent,
           ),
       },
+      {
+        path: 'management/reimbursement',
+        title: 'Reimbursement',
+        loadComponent: () =>
+          import('./modules/management/reimbursement/reimbursement.component').then(
+            (m) => m.ReimbursementComponent,
+          ),
+      },
     ],
   },
   { path: '**', component: NotFoundRedirectComponent },
