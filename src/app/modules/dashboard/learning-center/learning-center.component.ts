@@ -30,7 +30,7 @@ export class LearningCenterComponent {
     return this.selected.length === this.allOptions.length;
   }
 
-  public isIndeterminate(): boolean {
+  public isIndeterminateItem(): boolean {
     return this.selected.length > 0 && !this.isAllSelected();
   }
 
@@ -50,7 +50,7 @@ export class LearningCenterComponent {
     }
   }
 
-  public onItemChange(event: MatCheckboxChange): void {
+  public onOptionChange(event: MatCheckboxChange): void {
     this.selectAllItems = event.checked;
   }
 }

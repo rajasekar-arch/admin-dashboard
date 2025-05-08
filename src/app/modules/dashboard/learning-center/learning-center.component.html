@@ -3,9 +3,9 @@
   <mat-select [(ngModel)]="selected" (selectionChange)="onSelectionChange($event)" multiple>
     <mat-checkbox
       [checked]="isAllSelected()"
-      [indeterminate]="isIndeterminate()"
+      [indeterminate]="isIndeterminateItem()"
       (click)="toggleSelectAll()"
-      (change)="onItemChange($event)"
+      (change)="onOptionChange($event)"
     >
       {{ data[0].name }}
     </mat-checkbox>
@@ -17,4 +17,4 @@
   </mat-select>
 </mat-form-field>
 
-{{ optionItems | json }}
+<!-- {{ optionItems | json }} -->
