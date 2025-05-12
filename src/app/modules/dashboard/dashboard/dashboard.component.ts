@@ -2,13 +2,21 @@ import { Component } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../../material-module/material/material.module';
-import { BaseChartDirective } from 'ng2-charts';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
-import { ChartConfiguration, ChartOptions } from 'chart.js';
+import { NgApexchartsModule } from 'ng-apexcharts';
+
+import { ApexAxisChartSeries, ApexChart, ApexXAxis, ApexTitleSubtitle } from 'ng-apexcharts';
+
+export interface ChartOptions {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  xaxis: ApexXAxis;
+  title: ApexTitleSubtitle;
+}
 
 @Component({
   selector: 'app-dashboard',
-  imports: [CommonModule, MaterialModule, BaseChartDirective],
+  imports: [CommonModule, MaterialModule, NgApexchartsModule],
   providers: [provideCharts(withDefaultRegisterables())],
   standalone: true,
   templateUrl: './dashboard.component.html',
@@ -19,35 +27,25 @@ export class DashboardComponent {
   public activeUsers = 875;
   public newUsers = 150;
 
-  // Pie
-  public pieChartOptions: ChartOptions<'pie'> = {
-    responsive: false,
-  };
-  public pieChartLabels = [['users', 'count'], ['Admin', 'Employees', 'Count'], 'Total Count'];
-  public pieChartDatasets = [
+  // Apex charts
+
+  public chartSeries: ApexAxisChartSeries = [
     {
-      data: [300, 500, 100],
+      name: 'Sales',
+      data: [10, 41, 35, 51, 49, 62, 69],
     },
   ];
-  public pieChartLegend = true;
 
-  // Line chart data
+  public chart: ApexChart = {
+    type: 'bar',
+    height: 350,
+  };
 
-  public lineChartData: ChartConfiguration<'line'>['data'] = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-    datasets: [
-      {
-        data: [65, 59, 80, 81, 56, 55, 40],
-        label: 'Users Registration',
-        fill: true,
-        tension: 0.5,
-        borderColor: 'black',
-        backgroundColor: 'rgba(255,0,0,0.3)',
-      },
-    ],
+  public title: ApexTitleSubtitle = {
+    text: 'Monthly Sales Report',
   };
-  public lineChartOptions: ChartOptions<'line'> = {
-    responsive: false,
+
+  public xaxis: ApexXAxis = {
+    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
   };
-  public lineChartLegend = true;
 }
